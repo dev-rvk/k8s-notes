@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kubernetes Notes — Deep Reference</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn" aria-label="Toggle sidebar">☰</button>
+    <a class="brand" href="#/part1">
+      <span class="logo">⎈</span>
+      <span>Kubernetes Notes <em>— Deep Reference</em></span>
+    </a>
+    <div class="topbar-spacer"></div>
+    <input id="search" type="search" placeholder="Search sections & deep dives…" autocomplete="off" />
+    <button id="themeBtn" class="icon-btn" aria-label="Toggle theme" title="Toggle light/dark">◐</button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Navigation">
+      <div class="nav-group">
+        <div class="nav-title">Documents</div>
+        <a class="nav-link" data-route="part1" href="#/part1">Part 1 · Foundations</a>
+        <a class="nav-link" data-route="part2" href="#/part2">Part 2 · Config, Scaling, GitOps</a>
+        <a class="nav-link" data-route="part3" href="#/part3">Part 3 · Helm & Case Studies</a>
+        <a class="nav-link" data-route="part4" href="#/part4">Part 4 · Reference Helm Charts</a>
+        <a class="nav-link" data-route="part5" href="#/part5">Part 5 · kubectl & Sample Manifests</a>
+        <a class="nav-link" data-route="setup" href="#/setup">SETUP · GitOps Deployment</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-title">On this page</div>
+        <div id="toc" class="toc"></div>
+      </div>
+      <div class="nav-foot">
+        <span id="searchResults" class="search-results"></span>
+      </div>
+    </nav>
+
+    <main id="main" class="content">
+      <article id="article" class="markdown-body"></article>
+      <div id="loading" class="loading">Loading…</div>
+    </main>
+  </div>
+
+  <!-- Deep-dive drawer -->
+  <div id="drawerScrim" class="drawer-scrim" hidden></div>
+  <aside id="drawer" class="drawer" hidden aria-label="Deep dive">
+    <div class="drawer-head">
+      <span class="drawer-tag">DEEP DIVE</span>
+      <div class="drawer-actions">
+        <button id="drawerBack" class="icon-btn" title="Back" hidden>←</button>
+        <button id="drawerClose" class="icon-btn" title="Close (Esc)">✕</button>
+      </div>
+    </div>
+    <article id="drawerBody" class="markdown-body drawer-body"></article>
+  </aside>
+
+  <!-- Diagram zoom / pan lightbox -->
+  <div id="zoomOverlay" class="zoom-overlay" hidden>
+    <div class="zoom-toolbar">
+      <button class="icon-btn" data-zoom="out" title="Zoom out (−)">−</button>
+      <span id="zoomLevel" class="zoom-level">100%</span>
+      <button class="icon-btn" data-zoom="in" title="Zoom in (+)">+</button>
+      <button class="icon-btn" data-zoom="reset" title="Reset (0)">⟲</button>
+      <button class="icon-btn" data-zoom="close" title="Close (Esc)">✕</button>
+    </div>
+    <div id="zoomStage" class="zoom-stage"><div id="zoomInner" class="zoom-inner"></div></div>
+    <div class="zoom-hint">scroll = zoom · drag = pan · double-click = reset</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
